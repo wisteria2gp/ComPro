@@ -4,7 +4,7 @@ Vacation
 それまでの部分集合Sの最後vがなにであるかの仮定が必要なタイプ
 今回はvによってはv-uの経路が存在しない形式
 */
-
+#include <cstring>
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -56,5 +56,4 @@ int main()
     long long res=0;
     for(int i=0;i<3;++i) chmax(res,dp[n][i]);
     cout<<res<<"\n";
-
 }
