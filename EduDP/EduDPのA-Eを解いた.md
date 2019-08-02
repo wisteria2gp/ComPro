@@ -79,17 +79,15 @@ __部分問題への分解・最適化・部分問題の結合__
 具体例として次のようなものが全探索のコア部分になる
 
 ```cpp
-  for (int i = 0; i < n; ++i)
-  {
-      for (int sum_w = 0; sum_w <= w; ++sum_w)
-      {
-          //dp[i+1][sum_w]の更新
-          if(sum_w-weight[i]>=0)
-              chmax(dp[i+1][sum_w],dp[i][sum_w-weight[i]]+value[i]);
-          else
-              chmax(dp[i+1][sum_w],dp[i][sum_w]);
-      }
-  }
+    for (int i = 0; i < n; ++i)
+    {
+        for (int sum_w = 0; sum_w <= w; ++sum_w)
+        {
+            if(sum_w-weight[i]>=0)
+                chmax(dp[i+1][sum_w],dp[i][sum_w-weight[i]]+value[i]);
+            chmax(dp[i+1][sum_w],dp[i][sum_w]);
+        }
+    }
 ```
 
 コード上には実は分解プロセスが表れていない
