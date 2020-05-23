@@ -1,5 +1,8 @@
 
 
+
+// コンペ中に思ったとおりABC164_Dによく似ている。
+
 #include<bits/stdc++.h>
 
 
@@ -22,13 +25,27 @@ int lcm(int a,int b){
     return a/__gcd(a,b) * b;
 }
 
-ll x;
 
+
+int n;
 int main()
 {
-    cin>>x;
-    double n=log((x/100))/log(1.01);
-    cout<<n<<endl;
+    cin>>n;
+    vec<int> v(n);
+    iota(v.begin(), v.end(), 1); //1からはじめるm要素の列
+    
+    map<int,int> mp;
+    ll tmp=0;
+    ll ans=0;
+    rep(i,n){
+        cin>>tmp;
+        ans+=mp[i-tmp];　//記録した値と一致するものがいればその分合致する組数が増える
+        mp[i+tmp]++;//今回の入力を記録
+    }
+    
+
+
+    cout<<ans<<endl;
 
     return 0;
 

@@ -22,14 +22,25 @@ int lcm(int a,int b){
     return a/__gcd(a,b) * b;
 }
 
-ll x;
+struct edge{int from, to,cost;};
+
+// int型の2次元配列(3×4要素の)の宣言
+// vector<vector<int>> data(3, vector<int>(4));
+
+string S,T;
 
 int main()
 {
-    cin>>x;
-    double n=log((x/100))/log(1.01);
-    cout<<n<<endl;
-
+    cin>>S>>T;
+    int s,t;
+    s=S.size();
+    
+    // cout<<T.substr(0,s)<<endl;
+    if( S==T.substr(0,s)){
+        cout<<"Yes"<<endl;
+    }else{
+        cout<<"No"<<endl;
+    }
     return 0;
 
 }

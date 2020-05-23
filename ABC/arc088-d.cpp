@@ -22,13 +22,24 @@ int lcm(int a,int b){
     return a/__gcd(a,b) * b;
 }
 
-ll x;
+
+string S;
+
+
 
 int main()
 {
-    cin>>x;
-    double n=log((x/100))/log(1.01);
-    cout<<n<<endl;
+    cin>>S;
+    int len=S.size();
+    int ans=len;
+    rep(i,len-1){
+        if(S[i]!=S[i+1]){
+            chmin(ans,max(i+1,len-i-1));
+        }
+    }
+
+    cout<<ans<<endl;
+    
 
     return 0;
 

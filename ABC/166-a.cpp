@@ -22,14 +22,17 @@ int lcm(int a,int b){
     return a/__gcd(a,b) * b;
 }
 
-ll x;
+
+string S;
 
 int main()
 {
-    cin>>x;
-    double n=log((x/100))/log(1.01);
-    cout<<n<<endl;
-
+    cin>>S;
+    if(S=="ABC"){
+        cout<<"ARC"<<endl;
+    }else{
+        cout<<"ABC"<<endl;
+    }
     return 0;
 
 }

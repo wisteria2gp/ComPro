@@ -22,13 +22,29 @@ int lcm(int a,int b){
     return a/__gcd(a,b) * b;
 }
 
-ll x;
+
+
+
 
 int main()
 {
-    cin>>x;
-    double n=log((x/100))/log(1.01);
-    cout<<n<<endl;
+    int n,W;cin>>n>>W;
+    vec<int> weight(n+10);
+    vec<int> val(n+10);
+    rep(i,n){
+        cin>>weight[i]>>val[i];
+    }
+    vec<vec<ll>> dp(n+100,vec<ll> (W+100,0)); //dp[(商品id)][(総重量w以下)]
+
+    rep(i,n){
+        rep(w,W+1){
+            if(w<weight[i]) dp[i+1][w]=dp[i][w];
+            else dp[i+1][w]=max(dp[i][w],dp[i][w-weight[i]]+val[i]);
+            
+        }
+    }
+
+    cout<<dp[n][W]<<endl;
 
     return 0;
 

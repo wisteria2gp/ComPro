@@ -1,7 +1,7 @@
 
 
 #include<bits/stdc++.h>
-
+#include<cmath>
 
 
 #define loop(i,a,b) for(int i=a;i<b;i++) 
@@ -22,13 +22,29 @@ int lcm(int a,int b){
     return a/__gcd(a,b) * b;
 }
 
-ll x;
+// nに５乗で最も近くなるmを返す
+ll pow_search(ll n){
+    ll m=0;
+    while (!(pow(m,5) <= n && n < pow(m+1,5))){
+        m++;
+    }
+    return m;
+}
 
 int main()
 {
+    ll x;
     cin>>x;
-    double n=log((x/100))/log(1.01);
-    cout<<n<<endl;
+    ll match=0;
+    for(ll a=-300;a<=300;a++){
+        for(ll b=-300;b<=300;b++){
+            match=pow(a,5)-pow(b,5);
+            if(match==x){
+                cout<<a<<" "<<b<<endl;
+                return 0;
+            }
+        }
+    }
 
     return 0;
 
